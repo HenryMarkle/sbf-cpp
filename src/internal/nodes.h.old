@@ -1,0 +1,79 @@
+#pragma once
+
+#include <cstddef>
+#include <cstdint>
+
+#pragma once
+
+namespace SBF {
+
+enum class NodeType {
+	None,
+
+	I32,  I64,  F32,  F64,  I8, 
+	U32,  U64,              U8, 
+	I32A, I64A, F32A, F64A, I8A, 
+	U32A, U64A,             U8A, 
+	T
+
+};
+
+struct Node {
+
+	NodeType type;
+	
+	union {
+
+		int8_t i8;
+		uint8_t u8;
+		int32_t i32;
+		int64_t i64;
+		uint32_t u32;
+		uint64_t u64;
+		float f32;
+		double f64;
+		char c;
+
+		struct {
+			void *array;
+			size_t length;
+		};
+
+		Node *table;
+	
+	};
+
+	explicit inline Node(NodeType type, int8_t i8) noexcept : type(type), i8(i8) {}
+	explicit inline Node(NodeType type, uint8_t u8) noexcept : type(type), u8(u8) {}
+	explicit inline Node(NodeType type, int32_t i32) noexcept : type(type), i32(i32) {}
+	explicit inline Node(NodeType type, int64_t i64) noexcept : type(type), i64(i64) {}
+	explicit inline Node(NodeType type, uint32_t u32) noexcept : type(type), u32(u32) {}
+	explicit inline Node(NodeType type, uint64_t u64) noexcept : type(type), u64(u64) {}
+	explicit inline Node(NodeType type, float f32) noexcept : type(type), f32(f32) {}
+	explicit inline Node(NodeType type, double f64) noexcept : type(type), f64(f64) {}
+	explicit inline Node(NodeType type, char c) noexcept : type(type), c(c) {}
+	explicit inline Node(NodeType type, void *array, size_t length) noexcept : type(type), array(array), length(length) {}
+	explicit inline Node(NodeType type, Node *table) : type(type), table(table) {}
+
+	inline ~Node() {
+		switch (type) {
+		case NodeType::I32: if (length) delete[] static_cast<int32_t *>(array); break;
+	    	case NodeType::I64: if (length) delete[] static_cast<int64_t *>(array); break;
+		case NodeType::F32: if (length) delete[] static_cast<float *>(array); break;
+		case NodeType::F64A: if (length) delete[] static_cast<double *>(array); break;
+		case NodeType::I8A: if (length) delete[] static_cast<int8_t *>(array); break;
+		case NodeType::U32A: if (length) delete[] static_cast<uint32_t *>(array); break;
+		case NodeType::U64A: if (length) delete[] static_cast<uint64_t *>(array); break;
+		case NodeType::U8A: if (length) delete[] static_cast<uint8_t *>(array); break;
+		case NodeType::T: if (table) delete table; break;
+
+		default: return;
+		}
+	}
+
+	Node(const Node &) = delete;
+	Node &operator=(const Node &) = delete;
+
+};
+
+};
