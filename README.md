@@ -44,25 +44,27 @@ There are multiple types of tags containing different types of data:
 
 In binary, the tag is a single byte indicating the type and whether it's closing or not:
 
-00000001 ( 1) (opening) 32-bit integer tag
-00000010 ( 2) (opening) 64-bit integer tag
-00000011 ( 3) (opening) 32-bit float tag
-00000100 ( 4) (opening) 64-bit float tag
-00000101 ( 5) (opening) byte tag
-00000110 ( 6) (opening) unsigned 32-bit integer tag
-00000111 ( 7) (opening) unsigned 64-bit integer tag
-00001000 ( 8) (opening) unsigned byte tag
-00001001 ( 9) (opening) character tag
-00001010 (10) (opening) 32-bit integer array tag
-00001011 (11) (opening) 64-bit integer array tag
-00001100 (12) (opening) 32-bit float array tag
-00001101 (13) (opening) 64-bit float array tag
-00001111 (14) (opening) byte array tag
-00001110 (15) (opening) unsigned 32-bit integer array tag
-00010000 (16) (opening) unsigned 64-bit integer array tag
-00010001 (17) (opening) unsigned byte array tag
-00010010 (18) (opening) string tag
-00010011 (19) (opening) table
+Binary|Decimal|Type|Name
+------------------------
+00000001|1|opening|32-bit integer tag|
+00000010|2|opening|64-bit integer tag|
+00000011|3|opening|32-bit float tag|
+00000100|4|opening|64-bit float tag
+00000101|5|opening|byte tag
+00000110|6|opening|unsigned 32-bit integer tag
+00000111|7|opening|unsigned 64-bit integer tag
+00001000|8|opening|unsigned byte tag
+00001001|9|opening|character tag
+00001010|10|opening|32-bit integer array tag
+00001011|11|opening|64-bit integer array tag
+00001100|12|opening|32-bit float array tag
+00001101|13|opening|64-bit float array tag
+00001111|14|opening|byte array tag
+00001110|15|opening|unsigned 32-bit integer array tag
+00010000|16|opening|unsigned 64-bit integer array tag
+00010001|17|opening|unsigned byte array tag
+00010010|18|opening|string tag
+00010011|19|opening|table
 
 11111111 ( -1) (closing) 32-bit integer tag
 11111110 ( -2) (closing) 64-bit integer tag
