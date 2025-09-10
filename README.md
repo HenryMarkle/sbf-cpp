@@ -97,3 +97,5 @@ In binary, the tag is a single byte indicating the type and whether it's closing
 Each array opening tag is followed by a 8 bytes indicating the length (64-bit unsigned integer). 
 Each opening/closing tag has a size of 1 byte.
 2 bytes are added to the size calculation to any data type.
+
+A table is a list of string/node pairs. The library does not account for duplicate keys. The library was literally written in a span of days, so there's nothing special about it.
