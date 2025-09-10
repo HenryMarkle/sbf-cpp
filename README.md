@@ -51,7 +51,7 @@ There are multiple types of tags containing different types of data:
 In binary, the tag is a single byte indicating the type and whether it's closing or not:
 
 | Binary | Decimal | Type |Name  |Size (bytes) |
-| ------ | ------- | ---- | ---- | --- |
+| ------ | ------- | ---- | ---- | ----------- |
 |00000001|1|opening|32-bit integer tag|4|
 |00000010|2|opening|64-bit integer tag|8|
 |00000011|3|opening|32-bit float tag|4|
@@ -72,8 +72,8 @@ In binary, the tag is a single byte indicating the type and whether it's closing
 |00010010|18|opening|string tag|8 + length|
 |00010011|19|opening|table|*|
 
-| Binary | Decimal | Type |Name  |
-| ------ | ------- | ---- | ---- |
+| Binary | Decimal | Type |Name  |Size (bytes) |
+| ------ | ------- | ---- | ---- | ----------- |
 |11111111| -1|closing|32-bit integer tag|4|
 |11111110| -2|closing|64-bit integer tag|8|
 |11111101| -3|closing|32-bit float tag|4|
