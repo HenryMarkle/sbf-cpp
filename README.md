@@ -66,24 +66,26 @@ In binary, the tag is a single byte indicating the type and whether it's closing
 |00010010|18|opening|string tag|
 |00010011|19|opening|table|
 
-11111111 ( -1) (closing) 32-bit integer tag
-11111110 ( -2) (closing) 64-bit integer tag
-11111101 ( -3) (closing) 32-bit float tag
-11111100 ( -4) (closing) 64-bit float tag
-11111011 ( -5) (closing) byte tag
-11111010 ( -6) (closing) unsigned 32-bit integer tag
-11111001 ( -7) (closing) unsigned 64-bit integer tag
-11111000 ( -8) (closing) unsigned byte tag
-11110111 ( -9) (closing) character tag
-11110110 (-10) (closing) 32-bit integer array tag
-11110101 (-11) (closing) 64-bit integer array tag
-11110100 (-12) (closing) 32-bit float array tag
-11110011 (-13) (closing) 64-bit float array tag
-11110010 (-14) (closing) byte array tag
-11110001 (-15) (closing) unsigned 32-bit integer array tag
-11110000 (-16) (closing) unsigned 64-bit integer array tag
-11101111 (-17) (closing) unsigned byte array tag
-11101110 (-18) (closing) string tag
-11101101 (-19) (closing) table
+| Binary | Decimal | Type |Name  |
+| ------ | ------- | ---- | ---- |
+|11111111| -1|closing|32-bit integer tag|
+|11111110| -2|closing|64-bit integer tag|
+|11111101| -3|closing|32-bit float tag|
+|11111100| -4|closing|64-bit float tag|
+|11111011| -5|closing|byte tag|
+|11111010| -6|closing|unsigned 32-bit integer tag|
+|11111001| -7|closing|unsigned 64-bit integer tag|
+|11111000| -8|closing|unsigned byte tag|
+|11110111| -9|closing|character tag|
+|11110110|-10|closing|32-bit integer array tag|
+|11110101|-11|closing|64-bit integer array tag|
+|11110100|-12|closing|32-bit float array tag|
+|11110011|-13|closing|64-bit float array tag|
+|11110010|-14|closing|byte array tag|
+|11110001|-15|closing|unsigned 32-bit integer array tag|
+|11110000|-16|closing|unsigned 64-bit integer array tag|
+|11101111|-17|closing|unsigned byte array tag|
+|11101110|-18|closing|string tag|
+|11101101|-19|closing|table|
 
 Each array opening tag is followed by a 8 bytes indicating the length (64-bit unsigned integer). 
