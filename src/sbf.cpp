@@ -46,7 +46,7 @@ typedef struct Node {
 
 		struct {
 			char **keys;
-	        	Node **values;
+	        Node **values;
 			size_t table_length;
 		};	
 	};
